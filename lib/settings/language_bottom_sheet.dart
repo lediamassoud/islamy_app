@@ -43,7 +43,29 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
           ),
 
           //design dark and light mode
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.04,
+          ),
 
+          InkWell(
+            onTap: (){
+              languageProvider.changeTheLanguage("en");
+            },
+            child: languageProvider.language == "en"?
+            getSelectedItemWidget(AppLocalizations.of(context)!.english) :
+            getUnSelectedItemWidget(AppLocalizations.of(context)!.english),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
+          InkWell(
+            onTap: (){
+              languageProvider.changeTheLanguage("ar");
+            },
+            child: languageProvider.language == "ar"?
+            getSelectedItemWidget(AppLocalizations.of(context)!.arabic) :
+            getUnSelectedItemWidget(AppLocalizations.of(context)!.arabic),
+          ),
         ],
       ),
     );
