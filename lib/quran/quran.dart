@@ -3,6 +3,8 @@ import 'package:islami_app/app_theme.dart';
 import 'package:islami_app/path_image.dart';
 import 'package:islami_app/quran/item_sura_name.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Quran extends StatelessWidget {
   static List<String> suraNames = [
     "الفاتحه",
@@ -137,7 +139,7 @@ class Quran extends StatelessWidget {
             thickness: 3,
           ),
           Text(
-            "إسم السورة",
+            AppLocalizations.of(context)!.sura_name,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           Divider(

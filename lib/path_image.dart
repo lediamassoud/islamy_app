@@ -7,5 +7,6 @@ class PathImages {
   static const String sebhaIcon = "assets/images/icon_sebha.png";
   static const String radioIcon = "assets/images/icon_radio.png";
   static const String hadethImage = "assets/images/hadeth_logo.png";
+  static const String radioImage = "assets/images/radio_image.png";
 
 }

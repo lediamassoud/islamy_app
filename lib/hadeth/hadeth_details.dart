@@ -4,6 +4,8 @@ import 'package:islami_app/app_theme.dart';
 import '../path_image.dart';
 import 'hadeth.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HadethDetails extends StatelessWidget {
   static const routeName = "hadeth_details";
   const HadethDetails({super.key});
@@ -24,7 +26,7 @@ class HadethDetails extends StatelessWidget {
           appBar: AppBar(
             title: Center(
               child: Text(
-                "إسلامي",
+                AppLocalizations.of(context)!.app_title,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
@@ -66,7 +68,7 @@ class HadethDetails extends StatelessWidget {
     for (int i = 0; i < content.length; i++) {
       cont += content[i];
     }
-    print(cont);
+
     return cont;
   }
 }

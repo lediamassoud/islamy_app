@@ -6,6 +6,10 @@ import 'package:islami_app/quran/quran.dart';
 import 'package:islami_app/sebha/sebha.dart';
 import 'package:islami_app/radio/radio.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:islami_app/settings/settings.dart';
+
 class Home extends StatefulWidget {
   static const String routeName = "home_screen";
 
@@ -29,7 +33,7 @@ class _HomeState extends State<Home> {
       Scaffold(
         appBar: AppBar(
           title: Text(
-            "إسلامي",
+            AppLocalizations.of(context)!.app_title,
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
@@ -45,16 +49,21 @@ class _HomeState extends State<Home> {
               print(selectedIndex);
               setState(() {});
             },
-            items: const [
+            items:  [
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(PathImages.radioIcon)), label: ""),
+                icon: const Icon(Icons.settings),
+                label: AppLocalizations.of(context)!.settings),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(PathImages.sebhaIcon)), label: ""),
+                  icon: const ImageIcon(AssetImage(PathImages.radioIcon)), label: AppLocalizations.of(context)!.radio),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(PathImages.hadethIcon)),
-                  label: ""),
+                  icon: const ImageIcon(AssetImage(PathImages.sebhaIcon)), label: AppLocalizations.of(context)!.sebha),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(PathImages.quranIcon)), label: ""),
+                  icon: const ImageIcon(AssetImage(PathImages.hadethIcon)),
+                  label: AppLocalizations.of(context)!.hadeth),
+              BottomNavigationBarItem(
+                  icon: const ImageIcon(AssetImage(PathImages.quranIcon)), 
+                  label: AppLocalizations.of(context)!.quran),
+
             ],
           ),
         ),
@@ -62,5 +71,5 @@ class _HomeState extends State<Home> {
     ]);
   }
 
-  List<Widget> tabs = [RadioTab(), Sebha(), Hadeth(), Quran()];
+  List<Widget> tabs = [Settings(), RadioTab(), Sebha(), Hadeth(), Quran()];
 }

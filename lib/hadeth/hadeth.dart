@@ -5,6 +5,8 @@ import 'package:islami_app/hadeth/hadeth_details.dart';
 import '../app_theme.dart';
 import '../path_image.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Hadeth extends StatefulWidget {
   Hadeth({super.key});
 
@@ -33,7 +35,7 @@ class _HadethState extends State<Hadeth> {
             thickness: 3,
           ),
           Text(
-            "الاحاديث",
+            AppLocalizations.of(context)!.hadeth_name,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           Divider(
