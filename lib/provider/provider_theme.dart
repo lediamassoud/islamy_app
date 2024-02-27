@@ -4,11 +4,8 @@ import 'package:islami_app/path_image.dart';
 class ProviderTheme extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.light;
 
-  void changeThemeMode(ThemeMode newThemeMode){
-    if(newThemeMode == themeMode){
-      return;
-    }
-    themeMode = newThemeMode;
+  void changeThemeMode(bool switcValue){
+    themeMode = switcValue? ThemeMode.dark : ThemeMode.light;
 
     notifyListeners();
   }
