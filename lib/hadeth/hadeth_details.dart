@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_theme.dart';
+import 'package:provider/provider.dart';
 
 import '../path_image.dart';
+import '../provider/provider_theme.dart';
 import 'hadeth.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,12 +14,14 @@ class HadethDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProviderTheme themeProvider = Provider.of(context);
+
     var args = ModalRoute.of(context)!.settings.arguments as HadethData;
 
     return Stack(
       children: [
-        const Image(
-          image: AssetImage(PathImages.bgImage),
+         Image(
+          image: AssetImage(themeProvider.getBackgroundImagePath),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,
@@ -34,7 +38,9 @@ class HadethDetails extends StatelessWidget {
           body: Container(
             width: double.infinity,
             padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.04),
-            decoration: BoxDecoration(color: AppThem.whiteColor),
+            decoration: BoxDecoration(
+                color: themeProvider.isDark()?AppThem.primaryDark:AppThem.whiteColor
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

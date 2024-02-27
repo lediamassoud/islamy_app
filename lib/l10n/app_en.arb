@@ -10,5 +10,11 @@
 "language" : "Language",
 "english" : "English",
 "arabic" : "العربية",
-"ezaha" : "Quran Radio"
+"ezaha" : "Quran Radio",
+"theme" : "Them",
+"light" : "Light",
+"dark" : "Night",
+"tasbeh_numbers": "Tasheh Numbers",
+"soubhan_allah" : "Soubhan Allah",
+"alhmed_lallah" : "Alhamed L Allah"
 }

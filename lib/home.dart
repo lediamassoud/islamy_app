@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/app_theme.dart';
 import 'package:islami_app/hadeth/hadeth.dart';
 import 'package:islami_app/path_image.dart';
+import 'package:islami_app/provider/provider_theme.dart';
 import 'package:islami_app/quran/quran.dart';
 import 'package:islami_app/sebha/sebha.dart';
 import 'package:islami_app/radio/radio.dart';
@@ -9,6 +10,7 @@ import 'package:islami_app/radio/radio.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:islami_app/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   static const String routeName = "home_screen";
@@ -23,9 +25,10 @@ class _HomeState extends State<Home> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    ProviderTheme themeProvider = Provider.of(context);
     return Stack(children: [
-      const Image(
-        image: AssetImage(PathImages.bgImage),
+       Image(
+        image: AssetImage(themeProvider.getBackgroundImagePath),
         width: double.infinity,
         height: double.infinity,
         fit: BoxFit.fill,
@@ -40,7 +43,7 @@ class _HomeState extends State<Home> {
         body: tabs[selectedIndex],
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-            canvasColor: AppThem.primaryLight,
+            canvasColor: themeProvider.isDark()?AppThem.primaryDark:AppThem.primaryLight,
           ),
           child: BottomNavigationBar(
             currentIndex: selectedIndex,

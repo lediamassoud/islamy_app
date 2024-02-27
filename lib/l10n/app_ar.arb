@@ -10,5 +10,11 @@
 "language" : "اللغة",
 "english" : "English",
 "arabic" : "العربية",
-"ezaha" : "إذاعة القرأن الكريم"
+"ezaha" : "إذاعة القرأن الكريم",
+"theme" : "النمط",
+"light" : "نهاري",
+"dark" : "ليلي",
+"tasbeh_numbers": "عدد التسبيحات",
+"soubhan_allah" : "سبحان الله",
+"alhmed_lallah" : "الحمدلله"
 }
