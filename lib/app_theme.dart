@@ -15,6 +15,7 @@ class AppThem{
 
   //lightMode
   static ThemeData lightMode = ThemeData(
+      canvasColor: primaryLight,
     primaryColor:primaryLight ,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: AppBarTheme(
@@ -47,8 +48,11 @@ class AppThem{
 
   );
 
+
+
   //darkMode
   static ThemeData darkMode = ThemeData(
+      canvasColor:primaryDark,
       primaryColor:yellow ,
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: AppBarTheme(
