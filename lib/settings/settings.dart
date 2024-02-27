@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/app_theme.dart';
+import 'package:islami_app/extenison_function.dart';
 import 'package:islami_app/provider/provider_theme.dart';
 import 'package:islami_app/settings/language_bottom_sheet.dart';
 import 'package:islami_app/settings/theme_bottom_sheet.dart';
@@ -21,6 +22,8 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<ProviderLanguage>(context);
     var themeProvider = Provider.of<ProviderTheme>(context);
+    String selectedLanguage = languageProvider.language;
+
     return Container(
       padding: EdgeInsets.all(8),
       margin: EdgeInsets.all(10),
@@ -28,37 +31,31 @@ class _SettingsState extends State<Settings> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //language settings
-          Text(
-            AppLocalizations.of(context)!.language,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          // Text(
+          //   AppLocalizations.of(context)!.language,
+          //   style: Theme.of(context).textTheme.titleMedium,
+          // ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
-          InkWell(
-            onTap: () {
-              showLanguageBottomSheet();
-            },
-            child: Container(
-              padding:
-                  EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
-              decoration: BoxDecoration(
-                  color: AppThem.primaryLight,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(languageProvider.language == "en"
-                      ? AppLocalizations.of(context)!.english
-                      : AppLocalizations.of(context)!.arabic),
-                  const Icon(
-                    Icons.arrow_drop_down,
-                    size: 35,
-                  )
-                ],
-              ),
-            ),
-          ),
+          DropdownButton<String>(
+              iconEnabledColor: themeProvider.isDark()
+                  ? AppThem.primaryLight
+                  : AppThem.primaryDark,
+              style: Theme.of(context).textTheme.titleMedium,
+              value: selectedLanguage,
+              isExpanded: true,
+              items: [
+                DropdownMenuItem(
+                    value: "en",
+                    child: Text(
+                      context.l10n.english,
+                    )),
+                DropdownMenuItem(value: "ar", child: Text(context.l10n.arabic)),
+              ],
+              onChanged: (newValue) {
+                languageProvider.changeTheLanguage(newValue!);
+              }),
 
           //theme settings
           SizedBox(
@@ -136,3 +133,31 @@ InkWell(
           ),
 
 * * */
+
+/*
+*
+ InkWell(
+            onTap: () {
+              showLanguageBottomSheet();
+            },
+            child: Container(
+              padding:
+                  EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+              decoration: BoxDecoration(
+                  color: AppThem.primaryLight,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(languageProvider.language == "en"
+                      ? AppLocalizations.of(context)!.english
+                      : AppLocalizations.of(context)!.arabic),
+                  const Icon(
+                    Icons.arrow_drop_down,
+                    size: 35,
+                  )
+                ],
+              ),
+            ),
+          ),
+* */
