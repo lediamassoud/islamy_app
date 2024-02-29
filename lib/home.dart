@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
         body: tabs[selectedIndex],
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-            canvasColor: themeProvider.isDark()?AppThem.primaryDark:AppThem.primaryLight,
+            canvasColor: themeProvider.isDark?AppThem.primaryDark:AppThem.primaryLight,
           ),
           child: BottomNavigationBar(
             currentIndex: selectedIndex,

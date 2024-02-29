@@ -9,13 +9,21 @@ import 'package:islami_app/splash.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  ProviderTheme providerTheme = ProviderTheme();
+  await providerTheme.setItems();
+
+
+  ProviderLanguage providerLanguage = ProviderLanguage();
+  await providerLanguage.setItems();
   runApp(MultiProvider(
   providers: [
-  ChangeNotifierProvider (create: (_) => ProviderLanguage()),
-  ChangeNotifierProvider(create: (_) => ProviderTheme())
+  ChangeNotifierProvider (create: (_) => providerLanguage),
+  ChangeNotifierProvider(create: (_) => providerTheme)
   ],
   child: const MyApp()));
+
 }
 
 

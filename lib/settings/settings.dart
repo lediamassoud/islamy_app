@@ -39,7 +39,7 @@ class _SettingsState extends State<Settings> {
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           DropdownButton<String>(
-              iconEnabledColor: themeProvider.isDark()
+              iconEnabledColor: themeProvider.isDark
                   ? AppThem.primaryLight
                   : AppThem.primaryDark,
               style: Theme.of(context).textTheme.titleMedium,
@@ -74,20 +74,20 @@ class _SettingsState extends State<Settings> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                themeProvider.isDark()
+                themeProvider.isDark
                     ? AppLocalizations.of(context)!.light
                     : AppLocalizations.of(context)!.dark,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               Switch(
-                  value: themeProvider.isDark(),
+                  value: themeProvider.isDark,
                   onChanged: (newValue) {
                     themeProvider.changeThemeMode(newValue);
                   },
-                  activeTrackColor: themeProvider.isDark()
+                  activeTrackColor: themeProvider.isDark
                       ? AppThem.primaryLight
                       : AppThem.blackColor,
-                  activeColor: themeProvider.isDark()
+                  activeColor: themeProvider.isDark
                       ? AppThem.primaryLight
                       : AppThem.blackColor),
             ],

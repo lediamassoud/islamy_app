@@ -39,7 +39,7 @@ class HadethDetails extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.04),
             decoration: BoxDecoration(
-                color: themeProvider.isDark()?AppThem.primaryDark:AppThem.whiteColor
+                color: themeProvider.isDark?AppThem.primaryDark:AppThem.whiteColor
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

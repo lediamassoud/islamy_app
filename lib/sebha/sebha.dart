@@ -30,25 +30,27 @@ class _SebhaState extends State<Sebha> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Stack(
-          children: [
-             const Positioned(
-                top: 0,
-                left: 150,
-                child: Image(image: AssetImage(PathImages.headOfSebha))),
-            Padding(
-              padding: const EdgeInsets.all(75.0),
-              child: AnimatedRotation(
-                  turns: turns,
-                  duration: const Duration(seconds: 1),
-                  child:  const Image(image: AssetImage(PathImages.bodyOfSebha))),
-            ),
-          ],
+        Expanded(
+          child: Stack(
+            children: [
+               const Positioned(
+                  top: 0,
+                  left: 150,
+                  child: Image(image: AssetImage(PathImages.headOfSebha))),
+              Padding(
+                padding: const EdgeInsets.all(75.0),
+                child: AnimatedRotation(
+                    turns: turns,
+                    duration: const Duration(seconds: 1),
+                    child:  const Image(image: AssetImage(PathImages.bodyOfSebha))),
+              ),
+            ],
+          ),
         ),
          Text(
           AppLocalizations.of(context)!.tasbeh_numbers,
           style: TextStyle(
-              color: themeProvider.isDark()? AppThem.yellow : AppThem.lightBlack,
+              color: themeProvider.isDark? AppThem.yellow : AppThem.lightBlack,
               backgroundColor: AppThem.transparent,
               fontSize: 25,
               fontWeight: FontWeight.bold),

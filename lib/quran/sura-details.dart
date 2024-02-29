@@ -54,7 +54,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                       vertical: MediaQuery.of(context).size.height * 0.06,
                       horizontal: MediaQuery.of(context).size.width * 0.05),
                   decoration: BoxDecoration(
-                    color: themeProvider.isDark()?AppThem.primaryDark:AppThem.whiteColor,
+                    color: themeProvider.isDark?AppThem.primaryDark:AppThem.whiteColor,
                   ),
                   child: ListView.builder(
                     itemBuilder: (context, index) =>
