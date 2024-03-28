@@ -77,22 +77,23 @@ class _SettingsState extends State<Settings> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                themeProvider.isDark()
+                themeProvider.isDark
                     ? AppLocalizations.of(context)!.light
                     : AppLocalizations.of(context)!.dark,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               Switch(
-                  value: themeProvider.isDark(),
+                  value: themeProvider.isDark,
                   onChanged: (newValue) {
                     themeProvider.changeThemeMode(newValue);
                   },
-                  activeTrackColor: themeProvider.isDark()
+                  activeTrackColor: themeProvider.isDark
                       ? AppThem.primaryLight
                       : AppThem.blackColor,
-                  activeColor: themeProvider.isDark()
+                  activeColor: themeProvider.isDark
                       ? AppThem.primaryLight
-                      : AppThem.blackColor),
+                      : AppThem.blackColor
+              ),
             ],
           )
         ],

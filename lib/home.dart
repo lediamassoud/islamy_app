@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
             currentIndex: selectedIndex,
             onTap: (index) {
               selectedIndex = index;
-              print(selectedIndex);
+              //print(selectedIndex);
               setState(() {});
             },
             items:  [

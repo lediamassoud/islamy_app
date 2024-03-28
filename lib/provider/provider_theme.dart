@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/path_image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ProviderTheme extends ChangeNotifier {
+  class ProviderTheme extends ChangeNotifier {
 
   SharedPreferences? sharedPreferences;
   static const String shPrKey = "isDark";
 
   ThemeMode themeMode = ThemeMode.light;
 
-  void changeThemeMode(bool switcValue){
-    themeMode = switcValue? ThemeMode.dark : ThemeMode.light;
+  void changeThemeMode(bool switchValue){
+    themeMode = switchValue? ThemeMode.dark : ThemeMode.light;
     saveTheme(isDark);
 
     notifyListeners();

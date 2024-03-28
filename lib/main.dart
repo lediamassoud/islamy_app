@@ -11,12 +11,13 @@ import 'package:provider/provider.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+
   ProviderTheme providerTheme = ProviderTheme();
   await providerTheme.setItems();
 
-
   ProviderLanguage providerLanguage = ProviderLanguage();
   await providerLanguage.setItems();
+
   runApp(MultiProvider(
   providers: [
   ChangeNotifierProvider (create: (_) => providerLanguage),
